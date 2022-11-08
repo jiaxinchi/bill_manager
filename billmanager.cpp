@@ -194,7 +194,7 @@ void BillManager::Init_Bill()
 void BillManager::Login()
 {
 	cout << "*********************************************" << endl;
-	cout << "**********欢迎使用【账单管理系统】**********" << endl;
+	cout << "**********欢迎使用【账单管理系统】***********" << endl;
 	if (this->IsPasswordExist())
 	{
 		this->CheckPassword();
@@ -251,7 +251,7 @@ void BillManager::Add_Bill()
 			double amount;
 			string remarks;
 			struct Date date;
-			cout << "请输入账目日期，输入\"0\"为当前日期（年月日以空格隔开）（例如：2000 10 11）： " << endl;
+			cout << "请输入第"<< i + 1 <<"个账目的日期，输入\"0\"为当前日期（年月日以空格隔开）（例如：2000 10 11）： " << endl;
 			cin >> date.m_nYear;
 			int datetype;//输入的日期是否是默认形式
 			if (date.m_nYear == 0)
