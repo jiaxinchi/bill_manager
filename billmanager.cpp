@@ -511,8 +511,13 @@ void BillManager::Find_Bill()
 		int Num = 0;
 		for (int i = 0; i < this->m_BillNum; i++)
 		{
-			if (this->m_BillArray[i]->Date.m_nYear >= begin_date.m_nYear&&this->m_BillArray[i]->Date.m_nMonth >= begin_date.m_nMonth &&this->m_BillArray[i]->Date.m_nDay >= begin_date.m_nDay
-				&& this->m_BillArray[i]->Date.m_nYear<= end_date.m_nYear&&this->m_BillArray[i]->Date.m_nMonth <= end_date.m_nMonth &&this->m_BillArray[i]->Date.m_nDay <= end_date.m_nDay)
+			if (
+				((this->m_BillArray[i]->Date.m_nYear> begin_date.m_nYear)|| (this->m_BillArray[i]->Date.m_nYear == begin_date.m_nYear&&this->m_BillArray[i]->Date.m_nMonth > begin_date.m_nMonth) ||
+				(this->m_BillArray[i]->Date.m_nYear == begin_date.m_nYear&&this->m_BillArray[i]->Date.m_nMonth == begin_date.m_nMonth&&this->m_BillArray[i]->Date.m_nDay >= begin_date.m_nDay))&&
+
+				((this->m_BillArray[i]->Date.m_nYear < end_date.m_nYear) || (this->m_BillArray[i]->Date.m_nYear == end_date.m_nYear&&this->m_BillArray[i]->Date.m_nMonth < end_date.m_nMonth) ||
+				(this->m_BillArray[i]->Date.m_nYear == end_date.m_nYear&&this->m_BillArray[i]->Date.m_nMonth == end_date.m_nMonth&&this->m_BillArray[i]->Date.m_nDay <= end_date.m_nDay))
+				)
 			{
 				Num++;
 				if (Num == 1)
